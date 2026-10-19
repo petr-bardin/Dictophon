@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Диктофон совещаний</string>
+
+    <string name="status_idle">Готов к записи</string>
+    <string name="status_recording">● Идёт запись…</string>
+
+    <string name="hint_title">Тема совещания (необязательно)</string>
+    <string name="btn_record">Записать</string>
+    <string name="btn_stop">Остановить</string>
+
+    <string name="list_header">Записи</string>
+    <string name="list_empty">Пока нет записей. Нажмите «Записать», чтобы начать.</string>
+
+    <string name="permission_denied">Нет доступа к микрофону. Разрешите запись в настройках приложения.</string>
+    <string name="no_player">Не найдено приложение для воспроизведения аудио</string>
+
+    <string name="delete_title">Удалить запись?</string>
+    <string name="delete_message">Запись будет удалена без возможности восстановления.</string>
+    <string name="delete_ok">Удалить</string>
+    <string name="cancel">Отмена</string>
+    <string name="delete_failed">Не удалось удалить запись</string>
+
+    <string name="notif_channel">Запись звука</string>
+    <string name="notif_title">Идёт запись совещания</string>
+    <string name="notif_stop">Остановить</string>
+</resources>
