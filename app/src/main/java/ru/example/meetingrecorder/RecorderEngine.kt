@@ -48,6 +48,13 @@ class RecorderEngine {
         return false
     }
 
+    fun pause(): Boolean = runCatching { recorder?.pause() ?: error("Recorder unavailable") }.isSuccess
+
+    fun resume(): Boolean = runCatching { recorder?.resume() ?: error("Recorder unavailable") }.isSuccess
+
+    /** MediaRecorder's peak amplitude since the last sample, in the range 0..32767. */
+    fun amplitude(): Int = runCatching { recorder?.maxAmplitude ?: 0 }.getOrDefault(0)
+
     /** @return true, если файл записан корректно. */
     fun stop(): Boolean {
         val r = recorder ?: return false

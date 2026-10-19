@@ -1,42 +1,9 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="?attr/selectableItemBackground"
-    android:gravity="center_vertical"
-    android:orientation="horizontal"
-    android:paddingHorizontal="12dp"
-    android:paddingVertical="12dp">
-
-    <ImageView
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:importantForAccessibility="no"
-        android:src="@drawable/ic_audiobook" />
-
-    <LinearLayout
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:layout_weight="1"
-        android:orientation="vertical">
-
-        <TextView
-            android:id="@+id/tvName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ellipsize="end"
-            android:maxLines="1"
-            android:textAppearance="?attr/textAppearanceTitleSmall" />
-
-        <TextView
-            android:id="@+id/tvMeta"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ellipsize="end"
-            android:maxLines="1"
-            android:textAppearance="?attr/textAppearanceBodySmall"
-            android:textColor="?android:attr/textColorSecondary" />
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="wrap_content" android:background="@drawable/archive_row" android:foreground="?attr/selectableItemBackground" android:orientation="horizontal" android:gravity="center_vertical" android:paddingVertical="15dp" android:focusable="true" android:clickable="true">
+    <ImageView android:layout_width="30dp" android:layout_height="30dp" android:padding="6dp" android:src="@drawable/ic_play" android:importantForAccessibility="no"/>
+    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical" android:layout_marginStart="9dp">
+        <TextView android:id="@+id/tvName" android:layout_width="match_parent" android:layout_height="wrap_content" android:textColor="@color/ivory" android:textSize="13sp" android:ellipsize="end" android:maxLines="1"/>
+        <TextView android:id="@+id/tvMeta" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="7dp" android:textColor="@color/muted" android:textSize="9sp" android:ellipsize="end" android:maxLines="1"/>
     </LinearLayout>
-
+    <TextView android:id="@+id/tvDuration" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="8dp" android:textColor="@color/brass" android:textSize="11sp"/>
+    <ImageButton android:id="@+id/btnFavorite" style="@style/AurelIconButton" android:layout_width="48dp" android:padding="12dp" android:src="@drawable/ic_star" android:contentDescription="@string/favorites"/>
 </LinearLayout>

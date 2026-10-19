@@ -15,3 +15,7 @@ local.properties
 *.log
 *.tmp
 *.swp
+
+# Signing keys remain outside version control.
+*.keystore
+*.jks

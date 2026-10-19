@@ -1,116 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="16dp">
-
-    <TextView
-        android:id="@+id/tvStatus"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/status_idle"
-        android:textAppearance="?attr/textAppearanceTitleMedium"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/tilTitle"
-        style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:hint="@string/hint_title"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvStatus">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/etTitle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:imeOptions="actionDone"
-            android:inputType="textCapSentences"
-            android:maxLines="1" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <TextView
-        android:id="@+id/tvTimer"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="00:00:00"
-        android:textSize="40sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tilTitle" />
-
-    <LinearLayout
-        android:id="@+id/buttonRow"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvTimer">
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnRecord"
-            style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:contentDescription="@string/btn_record"
-            app:icon="@drawable/ic_mic"
-            app:iconGravity="textStart"
-            android:text="@string/btn_record" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnStop"
-            style="@style/Widget.Material3.Button.IconButton.Filled"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:contentDescription="@string/btn_stop"
-            android:text="@string/btn_stop"
-            app:icon="@drawable/ic_stop"
-            app:iconGravity="textStart"
-            android:visibility="gone" />
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" android:layout_width="match_parent" android:layout_height="match_parent" android:background="@color/obsidian" android:keepScreenOn="false">
+    <LinearLayout android:id="@+id/studioScreen" android:layout_width="match_parent" android:layout_height="match_parent" android:orientation="vertical">
+        <FrameLayout android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1">
+            <ru.example.meetingrecorder.RecorderInstrumentView android:id="@+id/instrument" android:layout_width="match_parent" android:layout_height="match_parent"/>
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="top|center_horizontal" android:layout_marginTop="8dp" android:text="AUREL" android:fontFamily="@font/aurel_serif" android:textColor="@color/brass" android:textSize="17sp" android:letterSpacing="0.25" android:importantForAccessibility="no"/>
+        </FrameLayout>
+        <LinearLayout android:layout_width="match_parent" android:layout_height="76dp" android:gravity="center_vertical" android:orientation="horizontal" android:paddingHorizontal="8dp">
+            <ImageButton android:id="@+id/btnArchive" style="@style/AurelIconButton" android:src="@drawable/ic_archive" android:contentDescription="@string/open_archive"/>
+            <Space android:layout_width="0dp" android:layout_height="1dp" android:layout_weight="1"/>
+            <ImageButton android:id="@+id/btnMarker" style="@style/AurelIconButton" android:src="@drawable/ic_marker" android:contentDescription="@string/add_marker"/>
+            <Space android:layout_width="0dp" android:layout_height="1dp" android:layout_weight="1"/>
+            <ru.example.meetingrecorder.RecordControlView android:id="@+id/btnRecord" android:layout_width="64dp" android:layout_height="64dp" android:contentDescription="@string/btn_record"/>
+            <Space android:layout_width="0dp" android:layout_height="1dp" android:layout_weight="1"/>
+            <ImageButton android:id="@+id/btnStop" style="@style/AurelIconButton" android:src="@drawable/ic_stop" android:contentDescription="@string/btn_stop"/>
+            <Space android:layout_width="0dp" android:layout_height="1dp" android:layout_weight="1"/>
+            <ImageButton android:id="@+id/btnInfo" style="@style/AurelIconButton" android:src="@drawable/ic_info" android:contentDescription="@string/about_app"/>
+        </LinearLayout>
     </LinearLayout>
-
-    <TextView
-        android:id="@+id/tvListHeader"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text="@string/list_header"
-        android:textAppearance="?attr/textAppearanceTitleMedium"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/buttonRow" />
-
-    <TextView
-        android:id="@+id/tvEmpty"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="@string/list_empty"
-        android:textAppearance="?attr/textAppearanceBodyMedium"
-        android:textColor="?android:attr/textColorSecondary"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvListHeader" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvRecordings"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:clipToPadding="false"
-        android:paddingBottom="16dp"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvListHeader" />
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout android:id="@+id/archiveScreen" android:layout_width="match_parent" android:layout_height="match_parent" android:orientation="vertical" android:paddingHorizontal="20dp" android:visibility="gone">
+        <LinearLayout android:layout_width="match_parent" android:layout_height="72dp" android:orientation="horizontal" android:gravity="center_vertical">
+            <ImageButton android:id="@+id/btnStudio" style="@style/AurelIconButton" android:src="@drawable/ic_back" android:contentDescription="@string/open_studio"/>
+            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/list_header" android:textColor="@color/ivory" android:textSize="32sp" android:fontFamily="@font/aurel_serif"/>
+            <TextView android:id="@+id/tvFileCount" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textColor="@color/brass" android:textSize="12sp"/>
+        </LinearLayout>
+        <EditText android:id="@+id/etSearch" android:layout_width="match_parent" android:layout_height="48dp" android:background="@drawable/search_field" android:hint="@string/search_hint" android:contentDescription="@string/search_hint" android:textSize="12sp" android:textColor="@color/ivory" android:textColorHint="@color/muted" android:inputType="text" android:maxLines="1" android:imeOptions="actionSearch" android:drawableStart="@drawable/ic_search" android:drawablePadding="10dp"/>
+        <LinearLayout android:layout_width="match_parent" android:layout_height="52dp" android:orientation="horizontal">
+            <com.google.android.material.button.MaterialButton android:id="@+id/btnAll" style="@style/AurelTextButton" android:layout_width="wrap_content" android:layout_height="48dp" android:text="@string/all_recordings"/>
+            <com.google.android.material.button.MaterialButton android:id="@+id/btnFavorites" style="@style/AurelTextButton" android:layout_width="wrap_content" android:layout_height="48dp" android:text="@string/favorites"/>
+        </LinearLayout>
+        <FrameLayout android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1">
+            <androidx.recyclerview.widget.RecyclerView android:id="@+id/rvRecordings" android:layout_width="match_parent" android:layout_height="match_parent" android:clipToPadding="false" android:paddingBottom="16dp" app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+            <TextView android:id="@+id/tvEmpty" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_gravity="center" android:gravity="center" android:text="@string/list_empty" android:textColor="@color/muted" android:textSize="20sp" android:fontFamily="@font/aurel_serif" android:padding="24dp"/>
+        </FrameLayout>
+        <LinearLayout android:id="@+id/playerPanel" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingVertical="8dp" android:orientation="vertical" android:visibility="gone">
+            <TextView android:id="@+id/tvPlaying" android:layout_width="match_parent" android:layout_height="wrap_content" android:textColor="@color/ivory" android:textSize="12sp" android:maxLines="1" android:ellipsize="end"/>
+            <LinearLayout android:layout_width="match_parent" android:layout_height="56dp" android:gravity="center_vertical">
+                <ImageButton android:id="@+id/btnPlayPause" style="@style/AurelIconButton" android:src="@drawable/ic_pause" android:contentDescription="@string/btn_pause"/>
+                <TextView android:id="@+id/tvPlayTime" android:layout_width="48dp" android:layout_height="wrap_content" android:textSize="10sp" android:textColor="@color/brass"/>
+                <SeekBar android:id="@+id/seekPlayback" android:layout_width="0dp" android:layout_height="48dp" android:layout_weight="1" android:contentDescription="@string/playback_position"/>
+                <ImageButton android:id="@+id/btnClosePlayer" style="@style/AurelIconButton" android:src="@drawable/ic_close" android:contentDescription="@string/close_player"/>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</FrameLayout>
